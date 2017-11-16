@@ -42,6 +42,7 @@ puts "Type one of the following:"
 puts "  asp    : Alexander Street Press links"
 puts "  alman  : Al Manhal"
 puts "  apb    : Apabi ebooks"
+puts "  bloom  : Bloomsbury Collections"
 puts "  brep   : Brepols (brepolsonline.net)"
 puts "  cup    : Cambridge University Press"
 puts "  ciao   : Columbia International Affairs Online"  
@@ -233,6 +234,18 @@ csv_data.each do |r|
       access = "Full access"
     elsif page.match(/(\s|"|'|\/|\.)[Ee]rror/)
       access = "Error returned"
+    else
+      access = "Check access manually"
+    end
+
+      elsif package == "bloom"
+    sleeptime = 10
+    if page.include?("Available in PDFs")
+      access = "Full access"
+    elsif page.include?("Available in HTML full text")
+      access = "Full access"
+    elsif page.include?("Only available to members")
+      access = "No access"
     else
       access = "Check access manually"
     end
