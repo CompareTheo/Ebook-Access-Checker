@@ -244,6 +244,8 @@ csv_data.each do |r|
       access = "Full access"
     elsif page.include?("Available in HTML full text")
       access = "Full access"
+    elsif page.include?("Bloomsbury Open Access")
+      access = "Open access"
     elsif page.include?("Only available to members")
       access = "No access"
     else
